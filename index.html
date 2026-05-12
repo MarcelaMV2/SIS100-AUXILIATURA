@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Programación Básica · SIS100 · USFX</title>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Crimson+Pro:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --bg:        #07111f;
+      --bg2:       #0d1e35;
+      --gold:      #f5c842;
+      --gold2:     #c9960c;
+      --blue:      #1d4ed8;
+      --blue-l:    #7eb3f5;
+      --text:      #e2e8f0;
+      --muted:     #64748b;
+      --card:      #0f1f36;
+      --border:    rgba(245,200,66,0.15);
+      --radius:    12px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Crimson Pro', Georgia, serif;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* ── GRID BG ── */
+    body::before {
+      content: '';
+      position: fixed; inset: 0;
+      background-image:
+        linear-gradient(rgba(126,179,245,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(126,179,245,0.04) 1px, transparent 1px);
+      background-size: 48px 48px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* ── NOISE ── */
+    body::after {
+      content: '';
+      position: fixed; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.4;
+    }
+
+    .wrap { position: relative; z-index: 1; max-width: 860px; margin: 0 auto; padding: 0 20px 80px; }
+
+    /* ── HERO ── */
+    .hero {
+      padding: 60px 0 40px;
+      text-align: center;
+      animation: fadeDown 0.8s ease both;
+    }
+
+    .badge-top {
+      display: inline-block;
+      background: var(--gold);
+      color: var(--bg);
+      font-family: 'Space Mono', monospace;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      padding: 5px 16px;
+      border-radius: 20px;
+      margin-bottom: 24px;
+      animation: fadeDown 0.6s ease 0.1s both;
+    }
+
+    .hero h1 {
+      font-family: 'Crimson Pro', serif;
+      font-size: clamp(2.2rem, 6vw, 3.8rem);
+      font-weight: 600;
+      line-height: 1.1;
+      background: linear-gradient(135deg, #f5c842 0%, #ffffff 50%, #7eb3f5 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 12px;
+      animation: fadeDown 0.7s ease 0.2s both;
+    }
+
+    .hero-sub {
+      font-family: 'Space Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 3px;
+      color: var(--blue-l);
+      margin-bottom: 20px;
+      animation: fadeDown 0.7s ease 0.3s both;
+    }
+
+    .hero-desc {
+      font-size: 1.1rem;
+      color: #94a3b8;
+      max-width: 520px;
+      margin: 0 auto 32px;
+      line-height: 1.7;
+      animation: fadeDown 0.7s ease 0.4s both;
+    }
+
+    .divider {
+      display: flex; align-items: center; gap: 16px;
+      margin: 40px 0 32px;
+      animation: fadeDown 0.7s ease 0.5s both;
+    }
+    .divider::before, .divider::after {
+      content: ''; flex: 1;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold2), transparent);
+    }
+    .divider span {
+      font-family: 'Space Mono', monospace;
+      font-size: 10px;
+      color: var(--gold);
+      letter-spacing: 2px;
+    }
+
+    /* ── INFO CARDS ── */
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 14px;
+      margin-bottom: 48px;
+      animation: fadeUp 0.7s ease 0.5s both;
+    }
+
+    .info-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 18px 20px;
+      display: flex; align-items: center; gap: 14px;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .info-card:hover { border-color: rgba(245,200,66,0.4); transform: translateY(-2px); }
+
+    .info-icon {
+      font-size: 1.6rem;
+      flex-shrink: 0;
+    }
+
+    .info-label {
+      font-family: 'Space Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 1.5px;
+      color: var(--muted);
+      margin-bottom: 3px;
+    }
+    .info-value {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    /* ── SECTION TITLE ── */
+    .section-title {
+      font-family: 'Space Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 3px;
+      color: var(--gold);
+      margin-bottom: 16px;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .section-title::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+
+    /* ── CLASES ── */
+    .clases { margin-bottom: 48px; }
+
+    .clase-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      margin-bottom: 12px;
+      overflow: hidden;
+      transition: border-color 0.2s, transform 0.2s;
+      animation: fadeUp 0.5s ease both;
+    }
+    .clase-card:hover { border-color: rgba(245,200,66,0.35); transform: translateY(-2px); }
+
+    .clase-header {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 16px 20px;
+      gap: 12px;
+    }
+
+    .clase-num {
+      font-family: 'Space Mono', monospace;
+      font-size: 10px;
+      color: var(--bg);
+      background: var(--gold);
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .clase-num.locked {
+      background: #1e293b;
+      color: var(--muted);
+    }
+
+    .clase-info { flex: 1; }
+
+    .clase-fecha {
+      font-family: 'Space Mono', monospace;
+      font-size: 11px;
+      color: var(--blue-l);
+      margin-bottom: 3px;
+    }
+
+    .clase-tema {
+      font-size: 1rem;
+      color: var(--text);
+      font-style: italic;
+    }
+
+    .clase-btn {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: var(--gold);
+      color: var(--bg);
+      font-family: 'Space Mono', monospace;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      padding: 8px 16px;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.15s;
+      flex-shrink: 0;
+    }
+    .clase-btn:hover { background: #fff; transform: scale(1.04); }
+
+    .clase-btn.locked {
+      background: #1e293b;
+      color: var(--muted);
+      cursor: not-allowed;
+      pointer-events: none;
+    }
+
+    /* ── COMO USAR ── */
+    .how-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 14px;
+      margin-bottom: 48px;
+    }
+
+    .how-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px;
+      text-align: center;
+      animation: fadeUp 0.6s ease both;
+    }
+
+    .how-step {
+      font-family: 'Space Mono', monospace;
+      font-size: 22px;
+      color: var(--gold);
+      margin-bottom: 10px;
+    }
+
+    .how-title {
+      font-size: 0.95rem;
+      font-weight: 600;
+      margin-bottom: 6px;
+      color: var(--text);
+    }
+
+    .how-desc {
+      font-size: 0.85rem;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    /* ── TOOLS ── */
+    .tools {
+      display: flex; flex-wrap: wrap; gap: 12px;
+      margin-bottom: 48px;
+    }
+
+    .tool-pill {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 30px;
+      padding: 10px 18px;
+      font-family: 'Space Mono', monospace;
+      font-size: 11px;
+      color: var(--blue-l);
+      text-decoration: none;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .tool-pill:hover { border-color: var(--gold); color: var(--gold); }
+
+    /* ── FOOTER ── */
+    footer {
+      text-align: center;
+      padding: 32px 0 0;
+      border-top: 1px solid var(--border);
+      font-family: 'Space Mono', monospace;
+      font-size: 10px;
+      color: var(--muted);
+      letter-spacing: 1px;
+      line-height: 2;
+    }
+
+    footer span { color: var(--gold); }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeDown {
+      from { opacity: 0; transform: translateY(-16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── MOBILE ── */
+    @media (max-width: 520px) {
+      .clase-header { flex-wrap: wrap; }
+      .clase-btn { width: 100%; justify-content: center; margin-top: 8px; }
+      .hero { padding: 40px 0 24px; }
+    }
+  </style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="badge-top">SIS · 100 · 1/2026</div>
+    <h1>Programación Básica</h1>
+    <p class="hero-sub">PSEUDOCÓDIGO · ALGORITMOS · DIAGRAMAS DE FLUJO</p>
+    <p class="hero-desc">
+      Bienvenido/a al repositorio oficial de la auxiliatura.<br/>
+      Aquí encontrarás todos los ejercicios y recursos de cada clase.
+    </p>
+  </div>
+
+  <!-- INFO -->
+  <div class="divider"><span>AUXILIAR</span></div>
+  <div class="info-grid">
+    <div class="info-card">
+      <div class="info-icon">👩‍🏫</div>
+      <div>
+        <div class="info-label">NOMBRE</div>
+        <div class="info-value">Marcela Miranda Veniz</div>
+      </div>
+    </div>
+    <div class="info-card">
+      <div class="info-icon">✉️</div>
+      <div>
+        <div class="info-label">CORREO</div>
+        <div class="info-value">mirandamarcela578@gmail.com</div>
+      </div>
+    </div>
+    <div class="info-card">
+      <div class="info-icon">📱</div>
+      <div>
+        <div class="info-label">CELULAR</div>
+        <div class="info-value">67399831</div>
+      </div>
+    </div>
+    <div class="info-card">
+      <div class="info-icon">🏛️</div>
+      <div>
+        <div class="info-label">UNIVERSIDAD</div>
+        <div class="info-value">USFX · Chuquisaca</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CLASES -->
+  <div class="clases">
+    <div class="divider"><span>CLASES</span></div>
+    <p class="section-title">📅 ÍNDICE DE CLASES</p>
+
+    <div class="clase-card" style="animation-delay:0.1s">
+      <div class="clase-header">
+        <span class="clase-num">01</span>
+        <div class="clase-info">
+          <div class="clase-fecha">🗓 13 de Mayo, 2026</div>
+          <div class="clase-tema">Introducción a la Modularidad</div>
+        </div>
+        <a class="clase-btn" href="https://github.com/MarcelaMV2/SIS100-AUXILIATURA/tree/main/Clase_1" target="_blank">Ver clase →</a>
+      </div>
+    </div>
+
+    <div class="clase-card" style="animation-delay:0.15s">
+      <div class="clase-header">
+        <span class="clase-num locked">02</span>
+        <div class="clase-info">
+          <div class="clase-fecha">🗓 20 de Mayo, 2026</div>
+          <div class="clase-tema">Por definir</div>
+        </div>
+        <span class="clase-btn locked">🔒 Próximamente</span>
+      </div>
+    </div>
+
+    <div class="clase-card" style="animation-delay:0.2s">
+      <div class="clase-header">
+        <span class="clase-num locked">03</span>
+        <div class="clase-info">
+          <div class="clase-fecha">🗓 27 de Mayo, 2026</div>
+          <div class="clase-tema">Por definir</div>
+        </div>
+        <span class="clase-btn locked">🔒 Próximamente</span>
+      </div>
+    </div>
+
+    <div class="clase-card" style="animation-delay:0.25s">
+      <div class="clase-header">
+        <span class="clase-num locked">04</span>
+        <div class="clase-info">
+          <div class="clase-fecha">🗓 03 de Junio, 2026</div>
+          <div class="clase-tema">Por definir</div>
+        </div>
+        <span class="clase-btn locked">🔒 Próximamente</span>
+      </div>
+    </div>
+
+    <div class="clase-card" style="animation-delay:0.3s">
+      <div class="clase-header">
+        <span class="clase-num locked">05</span>
+        <div class="clase-info">
+          <div class="clase-fecha">🗓 10 de Junio, 2026</div>
+          <div class="clase-tema">Por definir</div>
+        </div>
+        <span class="clase-btn locked">🔒 Próximamente</span>
+      </div>
+    </div>
+
+    <div class="clase-card" style="animation-delay:0.35s">
+      <div class="clase-header">
+        <span class="clase-num locked">06</span>
+        <div class="clase-info">
+          <div class="clase-fecha">🗓 17 de Junio, 2026</div>
+          <div class="clase-tema">Por definir</div>
+        </div>
+        <span class="clase-btn locked">🔒 Próximamente</span>
+      </div>
+    </div>
+
+    <div class="clase-card" style="animation-delay:0.4s">
+      <div class="clase-header">
+        <span class="clase-num locked">07</span>
+        <div class="clase-info">
+          <div class="clase-fecha">🗓 24 de Junio, 2026</div>
+          <div class="clase-tema">Por definir</div>
+        </div>
+        <span class="clase-btn locked">🔒 Próximamente</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- COMO USAR -->
+  <div class="divider"><span>GUÍA</span></div>
+  <p class="section-title">📋 ¿CÓMO USAR ESTE REPOSITORIO?</p>
+  <div class="how-grid">
+    <div class="how-card" style="animation-delay:0.1s">
+      <div class="how-step">01</div>
+      <div class="how-title">Elige una clase</div>
+      <div class="how-desc">Haz clic en "Ver clase" de la fecha que necesitas repasar.</div>
+    </div>
+    <div class="how-card" style="animation-delay:0.2s">
+      <div class="how-step">02</div>
+      <div class="how-title">Abre el ejercicio</div>
+      <div class="how-desc">Dentro verás los archivos <code>.md</code> con el enunciado y solución.</div>
+    </div>
+    <div class="how-card" style="animation-delay:0.3s">
+      <div class="how-step">03</div>
+      <div class="how-title">Descarga el .psc</div>
+      <div class="how-desc">Abre el archivo <code>.psc</code> en PSeInt para ver el diagrama animado.</div>
+    </div>
+    <div class="how-card" style="animation-delay:0.4s">
+      <div class="how-step">04</div>
+      <div class="how-title">¡Practica!</div>
+      <div class="how-desc">Modifica el pseudocódigo y experimenta con tus propias soluciones.</div>
+    </div>
+  </div>
+
+  <!-- TOOLS -->
+  <div class="divider"><span>HERRAMIENTAS</span></div>
+  <p class="section-title">🛠 HERRAMIENTAS DEL CURSO</p>
+  <div class="tools">
+    <a class="tool-pill" href="http://pseint.sourceforge.net/" target="_blank">
+      💻 PSeInt — Pseudocódigo y diagramas
+    </a>
+    <a class="tool-pill" href="https://github.com/MarcelaMV2/SIS100-AUXILIATURA" target="_blank">
+      🐙 Repositorio en GitHub
+    </a>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div>Programación Básica · <span>SIS100</span> · Gestión 1-2026</div>
+    <div>Universidad Mayor Real y Pontificia de San Francisco Xavier · Chuquisaca</div>
+    <div style="margin-top:8px">Hecho con <span>♥</span> para mis alumnos</div>
+  </footer>
+
+</div>
+</body>
+</html>

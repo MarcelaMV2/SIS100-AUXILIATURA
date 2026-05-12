@@ -1,39 +1,20 @@
-Algoritmo SerieNumeros
-	
-	Definir n, i, termino, suma Como Entero
-	Definir esPrimo Como Logico
-	Definir candidato, divisor Como Entero
-	
-	Escribir "Ingresa la cantidad de términos (mayor a 10): "
-	Leer n
-	
-	Mientras n <= 10 Hacer
-		Escribir "Debe ser mayor a 10. Intenta de nuevo: "
+Algoritmo primo
+	definir n,cont,cantdiv como entero
+	Repetir
+		Escribir "Introducir n entero positivo"
 		Leer n
+	Mientras Que n<0
+	cont <- 1
+	cantdiv <- 0
+	Mientras cont <= n Hacer
+		Si n mod cont = 0 Entonces
+			cantdiv <- cantdiv+1
+		FinSi
+		cont <- cont+1
 	FinMientras
-	
-	termino   <- 4
-	suma      <- 0
-	candidato <- 2
-	
-	Escribir ""
-	Escribir "Serie generada:"
-	Escribir "---------------------------------"
-	
-	Para i <- 1 Hasta n Hacer
-		
-		suma <- suma + termino
-		Escribir "  Término ", i, ": ", termino, "  (suma parcial: ", suma, ")"
-		
-		candidato <- candidato + 1
-		esPrimo <- Falso
-		
-		
-		termino <- termino + candidato
-		
-	FinPara
-	
-	Escribir "---------------------------------"
-	Escribir "Suma total de la serie: ", suma
-	
+	Si cantdiv=2 Entonces
+		Escribir "ES PRIMO"
+	SiNo
+		Escribir "NO ES PRIMO"
+	FinSi
 FinAlgoritmo

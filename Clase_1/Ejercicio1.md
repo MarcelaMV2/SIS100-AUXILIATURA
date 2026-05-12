@@ -20,14 +20,14 @@ Desarrollar un algoritmo que lea un número entero positivo ingresado por teclad
 
 > ✏️ _En construcción... ¡vuelve pronto!_ 🚧
 
-
+n <- entero positivo que se va determinar si es primo o no
 
 ---
 
 ### 📤 Datos de Salida
 
 > ✏️ _Todavía cocinando esto..._ 👨‍🍳
-
+mensaje <- NO ES PRIMO || ES PRIMO 
 
 ---
 
@@ -35,8 +35,10 @@ Desarrollar un algoritmo que lea un número entero positivo ingresado por teclad
 
 > ✏️ _Aquí es donde la magia ocurre..._ 🪄 _(próximamente)_
 
+n=8
 
----
+/   y este otro %
+--- 
 
 ## 📊 Diagrama de Flujo
 

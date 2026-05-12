@@ -54,4 +54,4 @@ Ver archivo 👉 [ejercicio2.png](./ejercicio2.png)
 
 ---
 
-[⬅️ Volver a la clase](./README.md) &nbsp;|&nbsp; [🏠 Inicio](../README.md)
+[⬅️ Volver a la clase](./README.md) &nbsp;|&nbsp; [🏠 Inicio](../index.html)

@@ -75,4 +75,4 @@ Ver archivo 👉 [reto_digitos.cpp](./reto_digitos.cpp)
 
 ---
 
-[⬅️ Volver a la clase](./README.md) &nbsp;|&nbsp; [🏠 Inicio](../README.md)
+[⬅️ Volver a la clase](./README.md) &nbsp;|&nbsp; [🏠 Inicio](../index.html)

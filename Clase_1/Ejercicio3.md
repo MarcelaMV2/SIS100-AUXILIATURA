@@ -70,4 +70,4 @@ Ver archivo 👉 [ejercicio3.png](./ejercicio3.png)
 
 ---
 
-[⬅️ Volver a la clase](./README.md) &nbsp;|&nbsp; [🏠 Inicio](../README.md)
+[⬅️ Volver a la clase](./README.md) &nbsp;|&nbsp; [🏠 Inicio](../index.html)

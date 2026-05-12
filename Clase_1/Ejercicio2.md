@@ -74,4 +74,4 @@ Ver archivo 👉 [ejercicio1.psc](./ejercicio1.png)
 
 ---
 
-[⬅️ Volver a la clase](./README.md) &nbsp;|&nbsp; [🏠 Inicio](../README.md)
+[⬅️ Volver a la clase](./README.md) &nbsp;|&nbsp; [🏠 Inicio](../index.html)

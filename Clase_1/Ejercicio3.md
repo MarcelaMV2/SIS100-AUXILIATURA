@@ -22,28 +22,27 @@ Para **n términos mayor a 10**, aplicando **modularidad** mediante el uso de su
 
 ### 📥 Datos de Entrada
 
-> ✏️ _En construcción... ¡vuelve pronto!_ 🚧
+Se ingresa `n`, cantidad de terminos de la serie. La funcion `leerdatos` valida que `n` sea mayor a 10 repitiendo la lectura hasta cumplir la condicion.
 
 
 ---
 
 ### 📤 Datos de Salida
 
-> ✏️ _Todavía cocinando esto..._ 👨‍🍳
+Se muestra cada termino de la serie y al final se imprime la suma total: `La suma de la serie es: suma`.
 
 
 ---
 
 ### 🧠 Resolución
 
-> ✏️ _Aquí es donde la magia ocurre..._ 🪄 _(próximamente)_
-
-
-  Explica el razonamiento modular paso a paso:
-  1. ¿Qué módulos/subprogramas vas a definir? (ej: leerN, calcularTermino, mostrarSerie, calcularSuma)
-  2. ¿Qué parámetros recibe y qué retorna cada subprograma?
-  3. ¿Cómo se comunican los módulos entre sí?
-  4. ¿Cuál es el rol del programa principal (main)?
+El programa principal lee `n`, inicializa `suma` en 0 y llama a `calcularSerie`.
+En `calcularSerie` se comienza con `termino = 4` y `inc = 2`. En cada iteracion:
+1. Se muestra el `termino` y se acumula en `suma`.
+2. Se actualiza el `termino` sumando `inc`.
+3. Se busca el siguiente incremento valido: se aumenta `inc` hasta que sea primo.
+El control de primalidad se hace en `determinarPrimo`, contando divisores; si tiene 2 divisores es primo.
+`suma` se pasa por referencia para que el resultado vuelva al programa principal.
 
 
 ---
@@ -57,7 +56,13 @@ Para **n términos mayor a 10**, aplicando **modularidad** mediante el uso de su
 
 ## 📊 Diagrama de Flujo
 
-> 🖼️ _¡El diagrama está en camino!_ ✈️
+![Diagrama del algoritmo principal](./ejercicio3.png)
+
+![Diagrama de leerdatos](./ejercicio3_1.png)
+
+![Diagrama de calcularSerie](./ejercicio3_2.png)
+
+![Diagrama de determinarPrimo](./ejercicio3_3.png)
 
 
 ---
@@ -65,8 +70,6 @@ Para **n términos mayor a 10**, aplicando **modularidad** mediante el uso de su
 ## 💾 Pseudocódigo
 
 Ver archivo 👉 [ejercicio3.psc](./ejercicio3.psc)
-
-Ver archivo 👉 [ejercicio3.png](./ejercicio3.png)
 
 ---
 

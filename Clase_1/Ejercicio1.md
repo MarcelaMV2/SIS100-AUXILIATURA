@@ -18,26 +18,39 @@ Desarrollar un algoritmo que lea un número entero positivo ingresado por teclad
 
 ### 📥 Datos de Entrada
 
-> ✏️ _En construcción... ¡vuelve pronto!_ 🚧
-
-n <- entero positivo que se va determinar si es primo o no
+Se ingresa `n`, un entero positivo a evaluar.
 
 ---
 
 ### 📤 Datos de Salida
 
-> ✏️ _Todavía cocinando esto..._ 👨‍🍳
-mensaje <- NO ES PRIMO || ES PRIMO 
+Se muestra un mensaje: `ES PRIMO` o `NO ES PRIMO`.
 
 ---
 
 ### 🧠 Resolución
 
-> ✏️ _Aquí es donde la magia ocurre..._ 🪄 _(próximamente)_
+Se cuenta cuantas veces `n` es divisible por los numeros desde 1 hasta `n`.
+Si el contador de divisores (`cantdiv`) es 2, entonces es primo; en caso contrario, no lo es.
 
-n=8
+Ejemplo con `n = 8`:
+- 8 % 1 = 0 -> cantdiv = 1
+- 8 % 2 = 0 -> cantdiv = 2
+- 8 % 3 = 2 -> cantdiv = 2
+- 8 % 4 = 0 -> cantdiv = 3
+- 8 % 5 = 3 -> cantdiv = 3
+- 8 % 6 = 2 -> cantdiv = 3
+- 8 % 7 = 1 -> cantdiv = 3
+- 8 % 8 = 0 -> cantdiv = 4
+Como `cantdiv <> 2`, entonces **NO ES PRIMO**.
 
-/   y este otro %
+Ejemplo con `n = 5`:
+- 5 % 1 = 0 -> cantdiv = 1
+- 5 % 2 = 1 -> cantdiv = 1
+- 5 % 3 = 2 -> cantdiv = 1
+- 5 % 4 = 1 -> cantdiv = 1
+- 5 % 5 = 0 -> cantdiv = 2
+Como `cantdiv = 2`, entonces **ES PRIMO**.
 --- 
 
 ## 📊 Diagrama de Flujo
@@ -50,9 +63,9 @@ n=8
 
 ## 💾 Pseudocódigo
 
-Ver archivo 👉 [ejercicio2.psc](./ejercicio1.psc)
+Ver archivo 👉 [ejercicio1.psc](./ejercicio1.psc)
 
-Ver archivo 👉 [ejercicio2.png](./ejercicio1.png)
+Ver archivo 👉 [ejercicio1.png](./ejercicio1.png)
 
 ---
 

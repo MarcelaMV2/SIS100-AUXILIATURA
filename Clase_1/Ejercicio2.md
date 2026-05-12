@@ -22,39 +22,26 @@ Para **n términos mayor a 10**.
 
 ### 📥 Datos de Entrada
 
-> ✏️ _En construcción... ¡vuelve pronto!_ 🚧
-
-<!-- 
-  Escribe aquí qué datos necesita el usuario ingresar.
-  Ejemplo:
-  - n → cantidad de términos a generar
--->
+Se ingresa `n`, cantidad de terminos a generar (mayor a 10).
 
 ---
 
 ### 📤 Datos de Salida
 
-> ✏️ _Todavía cocinando esto..._ 👨‍🍳
-
-<!--
-  Escribe aquí qué debe mostrar el programa.
-  Ejemplo:
-  - La serie generada término a término
-  - La suma total de la serie
--->
+Se muestra cada termino de la serie y al final la suma total.
 
 ---
 
 ### 🧠 Resolución
 
-> ✏️ _Aquí es donde la magia ocurre..._ 🪄 _(próximamente)_
-
-<!--
-  Explica el razonamiento paso a paso:
-  1. ¿Cómo se generan los términos de la serie?
-  2. ¿Cuál es el patrón entre un término y el siguiente?
-  3. ¿Cómo acumulas la suma?
--->
+Se inicializa `termino = 4`, `inc = 2`, `suma = 0` y `cont = 0`.
+Mientras `cont < n`:
+1. Se muestra `termino` y se acumula en `suma`.
+2. Se actualiza el siguiente termino con `termino = termino + inc`.
+3. Se busca el siguiente incremento valido: se aumenta `inc` en 1 hasta que sea primo.
+   Para verificarlo, se cuenta la cantidad de divisores (`cd`) de `inc` usando un ciclo interno.
+   Si `cd = 2`, el numero es primo y se acepta el incremento.
+Finalmente se imprime la suma total de la serie.
 
 ---
 

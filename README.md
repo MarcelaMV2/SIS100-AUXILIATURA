@@ -37,12 +37,12 @@ Aquí encontrarás todos los ejercicios, diagramas de flujo y pseudocódigos des
 
 | # | Fecha | Tema | Estado |
 |---|-------|------|--------|
-| 01 | [🗓️ 12 de Mayo](./clase-01-12mayo/README.md) | _Por definir_ | ✅ Disponible |
-| 02 | [🗓️ 19 de Mayo](./clase-02-19mayo/README.md) | _Por definir_ | 🔒 Próximamente |
-| 03 | [🗓️ 26 de Mayo](./clase-03-26mayo/README.md) | _Por definir_ | 🔒 Próximamente |
-| 04 | [🗓️ 02 de Junio](./clase-04-02junio/README.md) | _Por definir_ | 🔒 Próximamente |
-| 05 | [🗓️ 09 de Junio](./clase-05-09junio/README.md) | _Por definir_ | 🔒 Próximamente |
-| 06 | [🗓️ 16 de Junio](./clase-06-16junio/README.md) | _Por definir_ | 🔒 Próximamente |
+| 01 | [🗓️ 12 de Mayo](./Clase_1/README.md) | Introducción a la Modularidad · Conceptos Base | ✅ Disponible |
+| 02 | [🗓️ 19 de Mayo](./Clase_2/README.md) | _Por definir_ | 🔒 Próximamente |
+| 03 | [🗓️ 26 de Mayo](./Clase_3/README.md) | _Por definir_ | 🔒 Próximamente |
+| 04 | [🗓️ 02 de Junio](./Clase_4/README.md) | _Por definir_ | 🔒 Próximamente |
+| 05 | [🗓️ 09 de Junio](./Clase_5/README.md) | _Por definir_ | 🔒 Próximamente |
+| 06 | [🗓️ 16 de Junio](./Clase_6/README.md) | _Por definir_ | 🔒 Próximamente |
 
 ---
 
@@ -65,6 +65,6 @@ Aquí encontrarás todos los ejercicios, diagramas de flujo y pseudocódigos des
 
 <div align="center">
 
-_Programación Básica SIS100 · Universidad · Gestión 2025_  
+_Programación Básica SIS100 · Gestión 2025_  
 
 </div>

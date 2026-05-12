@@ -68,9 +68,9 @@ Para **n términos mayor a 10**.
 
 ## 💾 Pseudocódigo
 
-Ver archivo 👉 [ejercicio1.psc](./ejercicio1.psc)
+Ver archivo 👉 [ejercicio1.psc](./ejercicio2.psc)
 
-Ver archivo 👉 [ejercicio1.psc](./ejercicio1.png)
+Ver archivo 👉 [ejercicio1.psc](./ejercicio2.png)
 
 ---
 

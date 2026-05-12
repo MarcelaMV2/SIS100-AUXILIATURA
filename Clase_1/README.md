@@ -11,7 +11,7 @@
 | 01 | Ejercicio 1 | [👉 Ver ejercicio](./Ejercicio1.md) |
 | 02 | Ejercicio 2 | [👉 Ver ejercicio](./Ejercicio2.md) |
 | 03 | Ejercicio 3 | [👉 Ver ejercicio](./Ejercicio3.md) |
-| 03 | Ejercicio 3 | [👉 Ver ejercicio](./Ejercicio4.md) |
+| 04 | Ejercicio 4 | [👉 Ver ejercicio](./Ejercicio4.md) |
 
 ---
 

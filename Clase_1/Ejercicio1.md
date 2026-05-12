@@ -48,9 +48,9 @@ Desarrollar un algoritmo que lea un número entero positivo ingresado por teclad
 
 ## 💾 Pseudocódigo
 
-Ver archivo 👉 [ejercicio2.psc](./ejercicio2.psc)
+Ver archivo 👉 [ejercicio2.psc](./ejercicio1.psc)
 
-Ver archivo 👉 [ejercicio2.png](./ejercicio2.png)
+Ver archivo 👉 [ejercicio2.png](./ejercicio1.png)
 
 ---
 
